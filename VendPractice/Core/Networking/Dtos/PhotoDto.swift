@@ -10,8 +10,8 @@ import Foundation
 struct PhotoDto: Decodable {
     let id: String?
     let author: String?
-    let width: String?
-    let height: String?
+    let width: Int?
+    let height: Int?
     let url: String?
     let downloadUrl: String?
 }

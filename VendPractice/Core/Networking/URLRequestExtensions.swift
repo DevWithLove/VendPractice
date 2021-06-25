@@ -40,6 +40,6 @@ extension URLRequest {
             } catch {
                 completion(.failure(ApiError.decodingError))
             }
-        }
+        }.resume()
     }
 }
