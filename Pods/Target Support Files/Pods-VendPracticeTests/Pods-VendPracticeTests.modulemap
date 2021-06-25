@@ -1,0 +1,6 @@
+framework module Pods_VendPracticeTests {
+  umbrella header "Pods-VendPracticeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
