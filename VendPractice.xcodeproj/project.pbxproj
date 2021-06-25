@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		02D619C32685AE8F00FBB5C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619C22685AE8F00FBB5C8 /* AppDelegate.swift */; };
 		02D619C52685AE8F00FBB5C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619C42685AE8F00FBB5C8 /* SceneDelegate.swift */; };
-		02D619C72685AE8F00FBB5C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619C62685AE8F00FBB5C8 /* ViewController.swift */; };
+		02D619C72685AE8F00FBB5C8 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619C62685AE8F00FBB5C8 /* PhotoViewController.swift */; };
 		02D619CA2685AE8F00FBB5C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D619C82685AE8F00FBB5C8 /* Main.storyboard */; };
 		02D619CC2685AE9100FBB5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D619CB2685AE9100FBB5C8 /* Assets.xcassets */; };
 		02D619CF2685AE9100FBB5C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D619CD2685AE9100FBB5C8 /* LaunchScreen.storyboard */; };
 		02D619DA2685AE9100FBB5C8 /* VendPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619D92685AE9100FBB5C8 /* VendPracticeTests.swift */; };
 		02D619E52685AE9200FBB5C8 /* VendPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619E42685AE9200FBB5C8 /* VendPracticeUITests.swift */; };
+		02D619F72685B07F00FBB5C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D619F62685B07F00FBB5C8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 		02D619BF2685AE8F00FBB5C8 /* VendPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D619C22685AE8F00FBB5C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D619C42685AE8F00FBB5C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02D619C62685AE8F00FBB5C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02D619C62685AE8F00FBB5C8 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		02D619C92685AE8F00FBB5C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02D619CB2685AE9100FBB5C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02D619CE2685AE9100FBB5C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		02D619E02685AE9200FBB5C8 /* VendPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D619E42685AE9200FBB5C8 /* VendPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendPracticeUITests.swift; sourceTree = "<group>"; };
 		02D619E62685AE9200FBB5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D619F62685B07F00FBB5C8 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +101,9 @@
 		02D619C12685AE8F00FBB5C8 /* VendPractice */ = {
 			isa = PBXGroup;
 			children = (
-				02D619C22685AE8F00FBB5C8 /* AppDelegate.swift */,
-				02D619C42685AE8F00FBB5C8 /* SceneDelegate.swift */,
-				02D619C62685AE8F00FBB5C8 /* ViewController.swift */,
-				02D619C82685AE8F00FBB5C8 /* Main.storyboard */,
-				02D619CB2685AE9100FBB5C8 /* Assets.xcassets */,
-				02D619CD2685AE9100FBB5C8 /* LaunchScreen.storyboard */,
-				02D619D02685AE9100FBB5C8 /* Info.plist */,
+				02D619F42685AF4200FBB5C8 /* Supporting Files */,
+				02D619F32685AF3900FBB5C8 /* Features */,
+				02D619F22685AF3000FBB5C8 /* Core */,
 			);
 			path = VendPractice;
 			sourceTree = "<group>";
@@ -126,6 +124,43 @@
 				02D619E62685AE9200FBB5C8 /* Info.plist */,
 			);
 			path = VendPracticeUITests;
+			sourceTree = "<group>";
+		};
+		02D619F22685AF3000FBB5C8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				02D619C82685AE8F00FBB5C8 /* Main.storyboard */,
+				02D619C42685AE8F00FBB5C8 /* SceneDelegate.swift */,
+				02D619C22685AE8F00FBB5C8 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		02D619F32685AF3900FBB5C8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				02D619F52685AF7800FBB5C8 /* PhotoList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		02D619F42685AF4200FBB5C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02D619CB2685AE9100FBB5C8 /* Assets.xcassets */,
+				02D619CD2685AE9100FBB5C8 /* LaunchScreen.storyboard */,
+				02D619D02685AE9100FBB5C8 /* Info.plist */,
+				02D619F62685B07F00FBB5C8 /* Localizable.strings */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02D619F52685AF7800FBB5C8 /* PhotoList */ = {
+			isa = PBXGroup;
+			children = (
+				02D619C62685AE8F00FBB5C8 /* PhotoViewController.swift */,
+			);
+			path = PhotoList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D619CF2685AE9100FBB5C8 /* LaunchScreen.storyboard in Resources */,
+				02D619F72685B07F00FBB5C8 /* Localizable.strings in Resources */,
 				02D619CC2685AE9100FBB5C8 /* Assets.xcassets in Resources */,
 				02D619CA2685AE8F00FBB5C8 /* Main.storyboard in Resources */,
 			);
@@ -258,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02D619C72685AE8F00FBB5C8 /* ViewController.swift in Sources */,
+				02D619C72685AE8F00FBB5C8 /* PhotoViewController.swift in Sources */,
 				02D619C32685AE8F00FBB5C8 /* AppDelegate.swift in Sources */,
 				02D619C52685AE8F00FBB5C8 /* SceneDelegate.swift in Sources */,
 			);
@@ -438,7 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PHP3XA64F;
-				INFOPLIST_FILE = VendPractice/Info.plist;
+				INFOPLIST_FILE = "VendPractice/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PHP3XA64F;
-				INFOPLIST_FILE = VendPractice/Info.plist;
+				INFOPLIST_FILE = "VendPractice/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
