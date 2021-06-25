@@ -5,3 +5,10 @@
   Created by Tony Mu on 25/06/21.
   
 */
+
+"PHOTO_LIST_TITLE" = "Photos";
+"BUTTON_ADD" = "Add Photo";
+"BUTTON_OK" = "Ok";
+"BUTTON_EDIT" = "Edit";
+"BUTTON_RELOAD" = "Reload";
+"LOAD_REMOTE_PHOTO_FAILED_MESSAGE" = "Unable to load photos remotely";
