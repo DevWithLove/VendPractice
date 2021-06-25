@@ -16,6 +16,13 @@
 		02D619DA2685AE9100FBB5C8 /* VendPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619D92685AE9100FBB5C8 /* VendPracticeTests.swift */; };
 		02D619E52685AE9200FBB5C8 /* VendPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619E42685AE9200FBB5C8 /* VendPracticeUITests.swift */; };
 		02D619F72685B07F00FBB5C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02D619F62685B07F00FBB5C8 /* Localizable.strings */; };
+		02D619FA2685B18100FBB5C8 /* PhotoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619F92685B18100FBB5C8 /* PhotoApi.swift */; };
+		02D619FC2685B67500FBB5C8 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619FB2685B67500FBB5C8 /* URLRequestExtensions.swift */; };
+		02D619FE2685B9B600FBB5C8 /* PhotoWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D619FD2685B9B600FBB5C8 /* PhotoWebService.swift */; };
+		02D61A012685B9ED00FBB5C8 /* PhotoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61A002685B9ED00FBB5C8 /* PhotoDto.swift */; };
+		02D61A052685BCD500FBB5C8 /* PhotoRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61A042685BCD500FBB5C8 /* PhotoRepositoryProtocol.swift */; };
+		02D61A072685BD1300FBB5C8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61A062685BD1300FBB5C8 /* Photo.swift */; };
+		02D61A092685BE1700FBB5C8 /* PhotoMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D61A082685BE1700FBB5C8 /* PhotoMemoryStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		02D619E42685AE9200FBB5C8 /* VendPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendPracticeUITests.swift; sourceTree = "<group>"; };
 		02D619E62685AE9200FBB5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02D619F62685B07F00FBB5C8 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		02D619F92685B18100FBB5C8 /* PhotoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoApi.swift; sourceTree = "<group>"; };
+		02D619FB2685B67500FBB5C8 /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
+		02D619FD2685B9B600FBB5C8 /* PhotoWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWebService.swift; sourceTree = "<group>"; };
+		02D61A002685B9ED00FBB5C8 /* PhotoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDto.swift; sourceTree = "<group>"; };
+		02D61A042685BCD500FBB5C8 /* PhotoRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepositoryProtocol.swift; sourceTree = "<group>"; };
+		02D61A062685BD1300FBB5C8 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		02D61A082685BE1700FBB5C8 /* PhotoMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMemoryStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +115,9 @@
 		02D619C12685AE8F00FBB5C8 /* VendPractice */ = {
 			isa = PBXGroup;
 			children = (
-				02D619F42685AF4200FBB5C8 /* Supporting Files */,
-				02D619F32685AF3900FBB5C8 /* Features */,
 				02D619F22685AF3000FBB5C8 /* Core */,
+				02D619F32685AF3900FBB5C8 /* Features */,
+				02D619F42685AF4200FBB5C8 /* Supporting Files */,
 			);
 			path = VendPractice;
 			sourceTree = "<group>";
@@ -129,6 +143,9 @@
 		02D619F22685AF3000FBB5C8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				02D61A032685BCAF00FBB5C8 /* Repository */,
+				02D61A022685BC9E00FBB5C8 /* Utils */,
+				02D619F82685B16A00FBB5C8 /* Networking */,
 				02D619C82685AE8F00FBB5C8 /* Main.storyboard */,
 				02D619C42685AE8F00FBB5C8 /* SceneDelegate.swift */,
 				02D619C22685AE8F00FBB5C8 /* AppDelegate.swift */,
@@ -161,6 +178,42 @@
 				02D619C62685AE8F00FBB5C8 /* PhotoViewController.swift */,
 			);
 			path = PhotoList;
+			sourceTree = "<group>";
+		};
+		02D619F82685B16A00FBB5C8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02D619FF2685B9E000FBB5C8 /* Dtos */,
+				02D619F92685B18100FBB5C8 /* PhotoApi.swift */,
+				02D619FB2685B67500FBB5C8 /* URLRequestExtensions.swift */,
+				02D619FD2685B9B600FBB5C8 /* PhotoWebService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		02D619FF2685B9E000FBB5C8 /* Dtos */ = {
+			isa = PBXGroup;
+			children = (
+				02D61A002685B9ED00FBB5C8 /* PhotoDto.swift */,
+			);
+			path = Dtos;
+			sourceTree = "<group>";
+		};
+		02D61A022685BC9E00FBB5C8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		02D61A032685BCAF00FBB5C8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				02D61A042685BCD500FBB5C8 /* PhotoRepositoryProtocol.swift */,
+				02D61A062685BD1300FBB5C8 /* Photo.swift */,
+				02D61A082685BE1700FBB5C8 /* PhotoMemoryStorage.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D619C72685AE8F00FBB5C8 /* PhotoViewController.swift in Sources */,
+				02D61A092685BE1700FBB5C8 /* PhotoMemoryStorage.swift in Sources */,
+				02D619FC2685B67500FBB5C8 /* URLRequestExtensions.swift in Sources */,
+				02D619FA2685B18100FBB5C8 /* PhotoApi.swift in Sources */,
+				02D61A072685BD1300FBB5C8 /* Photo.swift in Sources */,
+				02D619FE2685B9B600FBB5C8 /* PhotoWebService.swift in Sources */,
+				02D61A052685BCD500FBB5C8 /* PhotoRepositoryProtocol.swift in Sources */,
 				02D619C32685AE8F00FBB5C8 /* AppDelegate.swift in Sources */,
+				02D61A012685B9ED00FBB5C8 /* PhotoDto.swift in Sources */,
 				02D619C52685AE8F00FBB5C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
