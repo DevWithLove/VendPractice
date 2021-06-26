@@ -11,11 +11,14 @@ import PINRemoteImage
 class PhotoViewController: UIViewController {
     
     // MARK: Variables
+    var viewModel: PhotoListViewModelProtocol!
     
     // MARK: Views
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
@@ -59,6 +62,7 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel.delegate = self
         loadData()
     }
     
@@ -93,10 +97,17 @@ class PhotoViewController: UIViewController {
     private func loadData() {
         activityIndiatorView.startAnimating()
         navigationItem.rightBarButtonItem?.isEnabled = false
+        viewModel.loadPhoto()
     }
     
     @objc
     private func buttonTapped() {
+        viewModel.addRandomPhoto()
+        UIView.animate(withDuration: 0) { [weak self] in
+            self?.tableView.reloadData()
+        } completion: { [weak self] _ in
+            self?.tableView.scrollToLastRow()
+        }
     }
     
     @objc
@@ -109,3 +120,70 @@ class PhotoViewController: UIViewController {
        loadData()
     }
 }
+
+extension PhotoViewController: PhotoViewModelDelegate {
+    func displayError(_ error: PhotoListError) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.presentMessage(message: error.localizedMessage)
+        }
+    }
+    
+    func didLoadData() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.activityIndiatorView.stopAnimating()
+            self.tableView.reloadData()
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        }
+    }
+}
+
+extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.photos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableCell.cellId, for: indexPath) as! PhotoTableCell
+        let photo = getPhoto(at: indexPath)
+        cell.configureWithModel(photo)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let photo = getPhoto(at: indexPath)
+            viewModel.delete(photo: photo)
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let sourcePhoto = getPhoto(at: sourceIndexPath)
+        let destinationPhoto = getPhoto(at: destinationIndexPath)
+        viewModel.swap(sourcePhoto: sourcePhoto, destinationPhoto: destinationPhoto)
+    }
+    
+    private func getPhoto(at indexPath: IndexPath) -> Photo {
+        return viewModel.photos[indexPath.row]
+    }
+}
+
+extension PhotoTableCell: Configurable {
+    func configureWithModel(_ photo: Photo) {
+        photoImageView.image = nil
+        if let url = URL(string: photo.downloadUrl) {
+            photoImageView.pin_setImage(from: url)
+        }
+        authorLabel.text = photo.author
+    }
+}
+
+

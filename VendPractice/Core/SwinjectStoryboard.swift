@@ -16,5 +16,12 @@ extension SwinjectStoryboard {
         defaultContainer.register(PhotoWebServiceProtocol.self) { _ in
             PhotoWebService()
         }
+        defaultContainer.register(PhotoListViewModelProtocol.self) { r in
+            PhotoListViewModel(photoWebService: r.resolve(PhotoWebServiceProtocol.self)!,
+                               photoRepository: r.resolve(PhotoRepositoryProtocol.self)!)
+        }
+        defaultContainer.storyboardInitCompleted(PhotoViewController.self) { r, c in
+            c.viewModel = r.resolve(PhotoListViewModelProtocol.self)!
+        }
     }
 }
