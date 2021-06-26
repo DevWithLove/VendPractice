@@ -11,9 +11,9 @@ class Photo: Hashable {
     let id: String
     let author: String
     let downloadUrl: String
-    var displayOrder: Int
+    var displayOrder: Int?
     
-    init(id: String, author: String, downloadUrl: String, displayOrder: Int) {
+    init(id: String, author: String, downloadUrl: String, displayOrder: Int?) {
         self.id = id
         self.author = author
         self.downloadUrl = downloadUrl

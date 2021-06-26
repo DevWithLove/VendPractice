@@ -11,7 +11,7 @@ enum PhotoListError: Error {
     case unableToDeletePhoto(Photo)
     case unableToSwapPhoto(Photo, Photo)
     case unableToSavePhoto
-    case unableToGetPhotos
+    case unableToGetPhotosFromLocalRepository
 }
 
 extension PhotoListError {
@@ -27,7 +27,7 @@ extension PhotoListError {
             return  "Unable to swap the photo id: \(sourcePhoto.id) with photo id \(destinationPhoto.id)"
         case .unableToSavePhoto:
             return "Unable to save the photo"
-        case .unableToGetPhotos:
+        case .unableToGetPhotosFromLocalRepository:
             return "Unable to get photos from storage"
         }
     }
