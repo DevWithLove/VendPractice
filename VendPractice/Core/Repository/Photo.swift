@@ -25,8 +25,12 @@ class Photo: Hashable {
     }
 }
 
-extension Photo {
+extension Photo: CustomStringConvertible {
     static func == (lhs: Photo, rhs: Photo) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    var description: String {
+        return "Photo - id:\(id), author:\(author), displayOrder:\(displayOrder ?? -1)"
     }
 }

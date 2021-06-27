@@ -24,8 +24,8 @@ protocol PhotoListViewModelProtocol {
     func addRandomPhoto()
     /// Delete the selected photo from the local repository and put it back to the pool
     func delete(photo: Photo)
-    /// Swap the photos display order
-    func swap(sourcePhoto: Photo, destinationPhoto: Photo)
+    /// Re-order the photos
+    func reorder(sourceIndex: Int, destinationIndex: Int)
 }
 
 class PhotoListViewModel {
@@ -46,7 +46,7 @@ class PhotoListViewModel {
 }
 
 extension PhotoListViewModel: PhotoListViewModelProtocol {
-    
+ 
     var numberOfPhotosLeft: Int {
         return photoPool.count
     }
@@ -74,7 +74,7 @@ extension PhotoListViewModel: PhotoListViewModelProtocol {
         do {
             // Get the photo from the pool and set the displayOrder
             let photo = photoPool[index]
-            photo.displayOrder = photos.nextDisplayOrder
+            photo.displayOrder = photos.endIndex
             // Save the photo to repository and remove it from the pool
             try photoRepository.save(photo)
             photos.append(photoPool.remove(at: index))
@@ -97,15 +97,11 @@ extension PhotoListViewModel: PhotoListViewModelProtocol {
         }
     }
     
-    func swap(sourcePhoto: Photo, destinationPhoto: Photo) {
-        guard sourcePhoto != destinationPhoto  else { return }
-        do {
-            try photos.swapDisplayOrder(sourcePhoto: sourcePhoto, destinationPhoto: destinationPhoto)
-            try photoRepository.save(sourcePhoto)
-            try photoRepository.save(destinationPhoto)
-        } catch {
-            delegate?.displayError(.unableToSwapPhoto(sourcePhoto, destinationPhoto))
-        }
+    func reorder(sourceIndex: Int, destinationIndex: Int) {
+        guard sourceIndex != destinationIndex else { return }
+        let photo = photos.remove(at: sourceIndex)
+        photos.insert(photo, at: destinationIndex)
+        updateDisplayOrders()
     }
     
     // MARK: - Helpers
@@ -127,6 +123,13 @@ extension PhotoListViewModel: PhotoListViewModelProtocol {
             delegate?.displayError(.unableToGetPhotosFromLocalRepository)
         }
     }
+    
+    private func updateDisplayOrders() {
+        for (index, photo) in photos.enumerated() {
+            photo.displayOrder = index
+            try? photoRepository.save(photo)
+        }
+    }
 }
 
 
@@ -136,23 +139,6 @@ private extension Array where Element == Photo {
     func sortedByDisplayOrder()-> [Photo] {
         let photos = filter({$0.displayOrder != nil})
         return photos.sorted(by: {$0.displayOrder! < $1.displayOrder!})
-    }
-    
-    mutating func swapDisplayOrder(sourcePhoto: Photo, destinationPhoto: Photo) throws {
-        guard let sourceIndex = firstIndex(of: sourcePhoto),
-              let destinationIndex = firstIndex(of: destinationPhoto) else {
-            throw ArrayError.cannotFindTheItem
-        }
-        let sourcePhotoDisplayOrder = sourcePhoto.displayOrder
-        sourcePhoto.displayOrder = destinationPhoto.displayOrder
-        destinationPhoto.displayOrder = sourcePhotoDisplayOrder
-        swapAt(sourceIndex, destinationIndex)
-        return
-    }
-    
-    var nextDisplayOrder: Int {
-        guard let latestDisplayOrder = last?.displayOrder else { return 1 }
-        return latestDisplayOrder + 1
     }
     
 }

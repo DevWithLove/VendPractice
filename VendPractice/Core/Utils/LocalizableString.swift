@@ -17,7 +17,6 @@ class LocalizableString: NSObject {
     static var loadRemotePhotoFailed = NSLocalizedString("LOAD_REMOTE_PHOTO_FAILED_MESSAGE", comment: "Photos view")
     static var noPhotoAvailable = NSLocalizedString("NO_PHOTO_AVAILABLE", comment: "Photos view")
     static var unableToDeletePhoto = NSLocalizedString("UNABLE_TO_DELETE_PHOTO", comment: "Photos view")
-    static var unableToSwapPhoto = NSLocalizedString("UNABLE_TO_SWAP_PHOTO", comment: "Photos view")
     static var unableToSavePhoto = NSLocalizedString("UNABLE_TO_SAVE_PHOTO", comment: "Photos view")
     static var unableToGetPhotoFromRepository = NSLocalizedString("UNABLE_TO_GET_PHOTO_FROM_LOCAL_REPOSITORY", comment: "Photos view")
 

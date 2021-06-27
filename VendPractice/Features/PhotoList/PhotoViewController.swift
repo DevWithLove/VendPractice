@@ -173,9 +173,7 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let sourcePhoto = getPhoto(at: sourceIndexPath)
-        let destinationPhoto = getPhoto(at: destinationIndexPath)
-        viewModel.swap(sourcePhoto: sourcePhoto, destinationPhoto: destinationPhoto)
+        viewModel.reorder(sourceIndex: sourceIndexPath.row, destinationIndex: destinationIndexPath.row)
     }
     
     private func getPhoto(at indexPath: IndexPath) -> Photo {

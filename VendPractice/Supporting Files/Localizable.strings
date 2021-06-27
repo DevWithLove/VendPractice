@@ -14,7 +14,6 @@
 "LOAD_REMOTE_PHOTO_FAILED_MESSAGE" = "Unable to load photos remotely";
 "NO_PHOTO_AVAILABLE" = "No photo is available";
 "UNABLE_TO_DELETE_PHOTO" = "Unable to delete the photo id: %@";
-"UNABLE_TO_SWAP_PHOTO" = "Unable to swap the photo id: %@ with photo id: %@";
 "UNABLE_TO_SAVE_PHOTO" = "Unable to save the photo";
 "UNABLE_TO_GET_PHOTO_FROM_LOCAL_REPOSITORY" = "Unable to get photos from storage";
 
