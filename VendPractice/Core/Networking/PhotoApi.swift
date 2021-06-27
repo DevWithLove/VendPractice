@@ -17,7 +17,7 @@ enum PhotoApi {
         case contentTypeHeaderKey = "Content-Type"
     }
     
-    // MARK: - API sbus
+    // MARK: - API subs
     case getList
     
     private var full: String {
