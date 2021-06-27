@@ -13,3 +13,9 @@ protocol PhotoRepositoryProtocol {
     func delete(_ photo: Photo) throws
 }
 
+
+enum RepositoryError: Error {
+    case failedGetData
+    case failedSaveData
+    case failedDeleteData
+}

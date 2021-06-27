@@ -10,7 +10,13 @@ import PINRemoteImage
 
 class PhotoViewController: UIViewController {
     
+    // MARK: Constants
+    
+    private let buttonHeight: CGFloat = 30
+    private let margin: CGFloat = 10
+    
     // MARK: Variables
+    
     var viewModel: PhotoListViewModelProtocol!
     
     // MARK: Views
@@ -84,10 +90,11 @@ class PhotoViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
         }
         button.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom).offset(10)
-            make.height.equalTo(30)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(tableView.snp.bottom).offset(margin)
+            make.height.equalTo(buttonHeight)
+            make.leading.equalToSuperview().offset(margin)
+            make.trailing.equalToSuperview().inset(margin)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(margin)
         }
         activityIndiatorView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()

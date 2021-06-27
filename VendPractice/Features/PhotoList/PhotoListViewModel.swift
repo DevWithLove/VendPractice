@@ -67,7 +67,7 @@ extension PhotoListViewModel: PhotoListViewModelProtocol {
         // Get a random photo from the pool.
         // Display a client error to the user if the pool is empty
         guard let index = photoPool.indices.randomElement() else {
-            delegate?.displayError(.notPhotoAvailable)
+            delegate?.displayError(.noPhotoAvailable)
             return
         }
         

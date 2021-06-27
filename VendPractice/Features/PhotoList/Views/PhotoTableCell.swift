@@ -12,9 +12,9 @@ class PhotoTableCell: UITableViewCell {
     
     // MARK:- Contants
     
-    let spacing: CGFloat = 8
-    let imageSize: CGSize = CGSize(width: 300, height: 200)
-    let textFont = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
+    private let spacing: CGFloat = 8
+    private let imageSize: CGSize = CGSize(width: 300, height: 200)
+    private let textFont = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
     
     // MARK:- UI Elements
     

@@ -7,7 +7,7 @@
 
 enum PhotoListError: Error {
     case loadRemotePhotoFailed
-    case notPhotoAvailable
+    case noPhotoAvailable
     case unableToDeletePhoto(Photo)
     case unableToSwapPhoto(Photo, Photo)
     case unableToSavePhoto
@@ -19,16 +19,16 @@ extension PhotoListError {
         switch self {
         case .loadRemotePhotoFailed:
             return LocalizableString.loadRemotePhotoFailed
-        case .notPhotoAvailable:
-            return "No photo is available"
+        case .noPhotoAvailable:
+            return LocalizableString.noPhotoAvailable
         case .unableToDeletePhoto(let photo):
-            return "Unable to delete the photo id: \(photo.id)"
+            return String(format: LocalizableString.unableToDeletePhoto, photo.id)
         case .unableToSwapPhoto(let sourcePhoto, let destinationPhoto):
-            return  "Unable to swap the photo id: \(sourcePhoto.id) with photo id \(destinationPhoto.id)"
+            return String(format: LocalizableString.unableToSwapPhoto, sourcePhoto.id, destinationPhoto.id)
         case .unableToSavePhoto:
-            return "Unable to save the photo"
+            return LocalizableString.unableToSavePhoto
         case .unableToGetPhotosFromLocalRepository:
-            return "Unable to get photos from storage"
+            return LocalizableString.unableToGetPhotoFromRepository
         }
     }
 }

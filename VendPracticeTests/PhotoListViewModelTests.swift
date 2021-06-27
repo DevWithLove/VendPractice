@@ -273,12 +273,6 @@ class MockPhotoWebService: PhotoWebServiceProtocol {
     }
 }
 
-enum RepositoryError: Error {
-    case failedGetData
-    case failedSaveData
-    case failedDeleteData
-}
-
 class MockPhotoRepository: PhotoRepositoryProtocol {
     var expectedResult: [Photo] = []
     var expectedError: RepositoryError?
